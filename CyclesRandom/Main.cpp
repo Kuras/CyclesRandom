@@ -11,7 +11,7 @@
 using namespace std;
 
 int getRandomFromNoyman(int number);
-
+int getRandomMod(int number);
 int main (void){
 
 	int randomNumber;
@@ -26,6 +26,16 @@ int main (void){
 		cout << randomNumber<< " ";
 		i++;
 	}
+	cout << "\nMOD random\n";
+	i=0;
+	randomNumber = getRandomMod(7);
+	cout << randomNumber<< " ";
+	while (i<100) {
+			randomNumber = getRandomMod(randomNumber);
+			cout << randomNumber<< " ";
+			i++;
+		}
+
 	return EXIT_SUCCESS;
 
 }
@@ -38,5 +48,9 @@ int getRandomFromNoyman(int number){
 }
 
 
-
+int getRandomMod(int number) {
+	int randomMod;
+	randomMod = (3+(number*27))%128;
+	return randomMod;
+}
 
